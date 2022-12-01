@@ -1,5 +1,14 @@
-// Assignment Code
 //needs global variables
+var lowercase = "abcdefghijklmnopqrstuvwxyz"
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var numbers = "0123456789"
+var symbols = "!@#$%^&*_-=+"
+//dont forget to make a vairable for sting and char string
+var charString= "" //assign nothing
+var string= ""
+
+
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // adding function generatePassword(){
