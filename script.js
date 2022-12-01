@@ -3,30 +3,27 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numbers = "0123456789"
 var symbols = "!@#$%^&*_-=+"
-//dont forget to make a vairable for sting and char string
-var charString= "" //assign nothing
-var str= ""
+var charString = "" 
+var str = ""
 
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
 
 // generatePassword(){
-function generatePassword(){
+function writePassword(){
 //pw criteria variables
-var passwordLength= selectPasswordLength();
-var specialChars = selectCharacters();
-var lowerChars = selectLowerChars();
-var upperChars = selectUpperChars();
-var numberChars= selectNumberChars();
-//validate the input
-validateCharactersSelected(specialChars, lowerChars, upperChars, numberChars);
-//establish "character string" within generation function
-var CharString = createCharsString(specialChars,lowerChars,upperChars,numberChars);
-var password = generatePassword(passwordLength, CharString);
-var passwordText = document.querySelector("#password");
-passwordText.value= password;
+  var passwordLength= selectPasswordLength();
+  var specialChars = selectCharacters();
+  var lowerChars = selectLowerChars();
+  var upperChars = selectUpperChars();
+  var numberChars= selectNumberChars();
+  validateCharactersSelected(specialChars, lowerChars, upperChars, numberChars);
+  var CharString = createCharsString(specialChars,lowerChars,upperChars,numberChars);
+  var password = generatePassword(passwordLength, CharString);
+  var passwordText = document.querySelector("#password");
+  passwordText.value= password;
 }
 
 
@@ -40,10 +37,10 @@ function selectPasswordLength() {
 //prompted to choose length, returns value of something between those numbers
   }
 }
-//follow through with the different character types
-//consider the diff of prompts and confirms.. not the same kinda inputs
+
 
 //spcialChar confirm
+
 function selectCharacters() {
   var specialChars = confirm("Specials?")
   return specialChars;
@@ -71,12 +68,12 @@ function validateCharactersSelected(specialChars, lowerChars, upperChars, number
   if (!specialChars && !numberChars && !lowerChars && !upperChars){
     alert("HEY, you must pick one.");
     //this reads, if you didnt pick anything you will be alerted to pick something
-    generatePassword()
+    writePassword()
 }
 }
 
 //a function to bring the strings together
-function createCharsString(specialChars, lowerChars, upperChars, numericChars) {
+function createCharsString(specialChars, lowerChars, upperChars, numberChars) {
   if (specialChars) {
     possibleChars = charString.concat(symbols)
     charString = possibleChars;
@@ -95,7 +92,7 @@ function createCharsString(specialChars, lowerChars, upperChars, numericChars) {
   }
   return charString
 }
-//still spits out undefined
+
 
 function generatePassword(length, characters) { 
   var str = "" 
@@ -103,5 +100,5 @@ function generatePassword(length, characters) {
      var index = Math.floor(Math.random() * characters.length);
      str += characters[index];
    }
-   return str.join;
+   return str;
   }
