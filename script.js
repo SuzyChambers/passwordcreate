@@ -5,13 +5,12 @@ var numbers = "0123456789"
 var symbols = "!@#$%^&*_-=+"
 //dont forget to make a vairable for sting and char string
 var charString= "" //assign nothing
-var string= ""
+var str= ""
 
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-//button was totally missing
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
 // generatePassword(){
 function generatePassword(){
@@ -24,13 +23,16 @@ var numberChars= selectNumberChars();
 //validate the input
 validateCharactersSelected(specialChars, lowerChars, upperChars, numberChars);
 //establish "character string" within generation function
-var charString = createCharsString(specialChars,lowerChars,upperChars,numberChars);
+var CharString = createCharsString(specialChars,lowerChars,upperChars,numberChars);
+var password = generatePassword(passwordLength, CharString);
+var passwordText = document.querySelector("#password");
+passwordText.value= password;
 }
+
 
 //write function for pw length, 8-128}
 function selectPasswordLength() {
-  while(true) {
-    //while true meaning if somethings there
+  while (true) {
     var passwordLength = prompt("Choose between 8-128.")
     if (passwordLength >= 8 && passwordLength<= 128) {
       return passwordLength;
@@ -67,20 +69,22 @@ function selectNumberChars() {
 
 function validateCharactersSelected(specialChars, lowerChars, upperChars, numberChars) {
   if (!specialChars && !numberChars && !lowerChars && !upperChars){
-    alert("HEY, you must pick one");
+    alert("HEY, you must pick one.");
     //this reads, if you didnt pick anything you will be alerted to pick something
-    writePassword()
-  }
+    generatePassword()
+}
 }
 
 //a function to bring the strings together
-function createCharsString(specialChars,lowerChars,upperChars,numberChars) {
-  //concat would make most sense here to add to charstrings
+function createCharsString(specialChars, lowerChars, upperChars, numericChars) {
   if (specialChars) {
     possibleChars = charString.concat(symbols)
     charString = possibleChars;
   }
-  //do the same for the other types
+  if (numberChars) {
+    possibleChars = charString.concat(numbers)
+    charString = possibleChars;
+  }
   if (lowerChars) {
     possibleChars = charString.concat(lowercase)
     charString = possibleChars;
@@ -89,27 +93,15 @@ function createCharsString(specialChars,lowerChars,upperChars,numberChars) {
     possibleChars = charString.concat(uppercase)
     charString = possibleChars;
   }
-  if (numberChars) {
-    possibleChars = charString.concat(numbers)
-    charString = possibleChars;
-  }
-  //return here
   return charString
 }
+//still spits out undefined
 
-
-//generate pw criteria
-//display password on page
-//wheres the values?
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-//here
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+function generatePassword(length, characters) { 
+  var str = "" 
+   for (var i = 0; i <= length; i++) {
+     var index = Math.floor(Math.random() * characters.length);
+     str += characters[index];
+   }
+   return str.join;
+  }
