@@ -41,6 +41,30 @@ function selectPasswordLength() {
 //follow through with the different character types
 //consider the diff of prompts and confirms.. not the same kinda inputs
 
+//spcialChar confirm
+function selectCharacters() {
+  var specialChars = confirm("Specials?")
+  return specialChars;
+}
+//lowerChar Confirm
+function selectLowerChars() {
+  var lowerChars = confirm("Lowercase letters?")
+  return lowerChars;
+}
+//upperChar confirm
+function selectUpperChars() {
+  var upperChars = confirm("Uppercase letters?")
+  return upperChars;
+}
+//numberChar confirm
+function selectNumberChars() {
+  var numberChar = confirm("Numbers?")
+  return numberChar;
+}
+
+//make sure user picks at least one
+// validation?
+
 
 
 //generate pw criteria
