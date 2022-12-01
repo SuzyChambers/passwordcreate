@@ -10,22 +10,41 @@ var string= ""
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+//button was totally missing
+generateBtn.addEventListener("click", writePassword);
 
-// adding function generatePassword(){
+// generatePassword(){
 function generatePassword(){
-  console.log("Button totally pressed");
-
-//prompt user for pw criteria
-//password legnth 8 <128
-// run the char list
-
+//pw criteria variables
+var passwordLength= selectPasswordLength();
+var specialChars = selectCharacters();
+var lowerChars = selectLowerChars();
+var upperChars = selectUpperChars();
+var numberChars= selectNumberChars();
 //validate the input
+validateCharactersSelected(specialChars, lowerChars, upperChars, numberChars);
+//establish "character string" within generation function
+var charString = createCharsString(specialChars,lowerChars,upperChars,numberChars);
+}
+
+//write function for pw length, 8-128}
+function selectPasswordLength() {
+  while(true) {
+    //while true meaning if somethings there
+    var passwordLength = prompt("Choose between 8-128.")
+    if (passwordLength >= 8 && passwordLength<= 128) {
+      return passwordLength;
+    }
+//prompted to choose length, returns value of something between those numbers
+  }
+}
+//follow through with the different character types
+//consider the diff of prompts and confirms.. not the same kinda inputs
+
+
+
 //generate pw criteria
 //display password on page
-
-  return "Generated password is here"
-}
-//}
 //wheres the values?
 
 // Write password to the #password input
