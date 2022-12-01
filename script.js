@@ -6,6 +6,14 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword(){
   console.log("Button totally pressed");
 
+//prompt user for pw criteria
+//password legnth 8 <128
+// run the char list
+
+//validate the input
+//generate pw criteria
+//display password on page
+
   return "Generated password is here"
 }
 //}
