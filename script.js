@@ -65,6 +65,37 @@ function selectNumberChars() {
 //make sure user picks at least one
 // validation?
 
+function validateCharactersSelected(specialChars, lowerChars, upperChars, numberChars) {
+  if (!specialChars && !numberChars && !lowerChars && !upperChars){
+    alert("HEY, you must pick one");
+    //this reads, if you didnt pick anything you will be alerted to pick something
+    writePassword()
+  }
+}
+
+//a function to bring the strings together
+function createCharsString(specialChars,lowerChars,upperChars,numberChars) {
+  //concat would make most sense here to add to charstrings
+  if (specialChars) {
+    possibleChars = charString.concat(symbols)
+    charString = possibleChars;
+  }
+  //do the same for the other types
+  if (lowerChars) {
+    possibleChars = charString.concat(lowercase)
+    charString = possibleChars;
+  }
+  if (upperChars) {
+    possibleChars = charString.concat(uppercase)
+    charString = possibleChars;
+  }
+  if (numberChars) {
+    possibleChars = charString.concat(numbers)
+    charString = possibleChars;
+  }
+  //return here
+  return charString
+}
 
 
 //generate pw criteria
